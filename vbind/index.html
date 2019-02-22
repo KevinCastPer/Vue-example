@@ -1,0 +1,37 @@
+<html>
+
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div class="product">
+      <div class="product-image">
+        <!-- Prior tag
+                <img src="" />
+                -->
+        <img :src="image" v-bind:alt="altText" />
+        <img v-bind:src="imageOther" v-bind:alt="altTextOther" />
+      </div>
+
+      <div class="product-info">
+        <h1>{{product}}</h1>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+    var app = new Vue({
+      el: '#app',
+      data: {
+        product: "Socks",
+        altText: "A pair of socks",
+        altTextOther: "A pair green of socks",
+        image: "./assets/vmSocks-blue.png",
+        imageOther: "./assets/vmSocks-green.png"
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+      <br/><br/>
+      <span id="app">Message: {{ msg }}</span>
+      <br/><br/>
+      <div id="app2">
+      </div>
+    <script>
+
+    var app = new Vue({
+      el: '#app',
+      data: {
+        msg: 'Hello Vue!'
+      }
+    })
+
+    // Our data object
+    var data = { a: 1 }
+
+    var vm = new Vue({
+        el: '#app2',
+        data: data,
+        created: function () {
+        // `this` points to the vm instance
+        var app2 = document.getElementById("app2");
+        var p = document.createElement("p");
+        p.textContent = 'a is: ' + this.a;
+        app2.appendChild(p);
+        console.log('a is: ' + this.a)
+      }
+    })
+
+    // Getting the property on the instance
+    // returns the one from the original data
+    vm.a == data.a // => true
+
+    // Setting the property on the instance
+    // also affects the original data
+    vm.a = 2
+    console.log('a is: ' + data.a) // => 2
+
+    // ... and vice-versa
+    data.a = 3
+    vm.a // => 3
+    console.log(vm.b = 'hi')
+
+    </script>
+
+  </body>
+</html>
